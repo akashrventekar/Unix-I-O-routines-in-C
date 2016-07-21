@@ -1,0 +1,47 @@
+av0018@dakota:~/unix/assign1$ make mycp.o
+gcc -c mycp.c
+av0018@dakota:~/unix/assign1$ make mycp
+gcc -o mycp mycp.o
+av0018@dakota:~/unix/assign1$ make run1
+./mycp
+Error: Usage: ./mycp <source-file> <Target-file-or-dir> OR <source-files> <Target-dir>
+make: *** [run1] Error 1
+av0018@dakota:~/unix/assign1$ make run2
+./mycp asd
+Error: Usage: ./mycp <source-file> <Target-file-or-dir> OR <source-files> <Target-dir>
+make: *** [run2] Error 1
+av0018@dakota:~/unix/assign1$ make run3
+./mycp creation J.txt
+Error: Source file "creation" does not exist
+make: *** [run3] Error 1
+av0018@dakota:~/unix/assign1$ make run4
+./mycp creation.txt J.txt
+The file J.txt already exists.Do you want to overwrite the file (y or n?)
+y
+Copied creation.txt to J.txt
+av0018@dakota:~/unix/assign1$ make run5
+./mycp printf.txt J.txt
+The file J.txt already exists.Do you want to overwrite the file (y or n?)
+y
+Copied printf.txt to J.txt
+av0018@dakota:~/unix/assign1$ make run6
+./mycp creation.txt creation.txt
+Error: Source file and target file are the same
+make: *** [run6] Error 1
+av0018@dakota:~/unix/assign1$ make run7
+./mycp creation.txt J.txt assdf
+Error: Target directory does not exist
+make: *** [run7] Error 1
+av0018@dakota:~/unix/assign1$ make run8
+./mycp creation.txt J.txt J Creation a
+The file creation.txt already exists.Do you want to overwrite the file (y or n?)
+y
+Copied creation.txt to a/creation.txt
+Copied J.txt to a/J.txt
+Error: Source file J does not exist
+Error: Source file Creation does not exist
+av0018@dakota:~/unix/assign1$ make run9
+./mycp creation.txt J.txt J Creation /usr
+Do not have permissions to copy into the directory: /usr. Permission denied!
+make: *** [run9] Error 1
+
